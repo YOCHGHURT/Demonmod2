@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "demonmod:block/redwood_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "demonmod:block/redwood_log"
+    },
+    "axis=z": {
+      "model": "demonmod:block/redwood_log",
+      "x": 90
+    }
+  }
+}

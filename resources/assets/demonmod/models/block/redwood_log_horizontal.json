@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_collum_horizontal",
+  "textures": {
+    "end": "demonmod:block/redwood_log_top",
+    "side": "demonmod:block/redwood_log"
+  }
+}

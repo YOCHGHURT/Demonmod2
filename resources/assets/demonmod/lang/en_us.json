@@ -1,0 +1,21 @@
+{
+  "item.demonmod.amethyst": "Amethyst",
+  "block.demonmod.amethyst_ore": "Amethyst Ore",
+  "itemGroup.demonModTab": "Demon Mod",
+  "item.demonmod.amethyst_sword":"Amethyst_sword",
+  "item.demonmod.amethyst_pickaxe": "Amethyst Pickaxe",
+  "item.demonmod.amethyst_shovel": "Amethyst Shovel",
+  "item.demonmod.amethyst_hoe": "Amethyst Hoe",
+  "item.demonmod.amethyst_axe": "Amethyst Axe",
+  "item.demonmod.amethyst_helmet": "Amethyst Helmet",
+  "item.demonmod.amethyst_chestplate": "Amethyst chestplate",
+  "item.demonmod.amethyst_boots": "Amethyst Boots",
+  "item.demonmod.amethyst_leggings": "Amethyst Leggings",
+  "block.demonmod.redwood_wood": "Redwood Wood",
+  "block.demonmod.stripped_redwood_wood": "Stripped Redwood Wood",
+  "block.demonmod.redwood_log": "Redwood Log",
+  "block.demonmod.stripped_redwood_log": "Stripped Redwood Log",
+  "block.demonmod.redwood_planks": "Redwood Planks"
+
+
+}
