@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "demonmod:block/demon_altar",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "demonmod:block/demon_altar"
+    },
+    "facing=south": {
+      "model": "demonmod:block/demon_altar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "demonmod:block/demon_altar",
+      "y": 270
+    }
+  }
+}
