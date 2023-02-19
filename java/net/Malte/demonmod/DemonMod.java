@@ -7,6 +7,8 @@ import net.Malte.demonmod.entity.render.BuffZombieRenderer;
 import net.Malte.demonmod.entity.render.PigeonRenderer;
 import net.Malte.demonmod.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.AxeItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -65,6 +67,14 @@ public class DemonMod
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+                    RenderTypeLookup.setRenderLayer(ModBlocks.DEMON_ALTAR.get(), RenderType.getCutout());
+                });
+
+
+
+
+
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BUFF_ZOMBIE.get(), BuffZombieRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PIGEON.get(), PigeonRenderer::new);
 

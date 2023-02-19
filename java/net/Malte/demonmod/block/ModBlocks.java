@@ -1,6 +1,7 @@
 package net.Malte.demonmod.block;
 
 import net.Malte.demonmod.DemonMod;
+import net.Malte.demonmod.block.custom.DemonAltarBlock;
 import net.Malte.demonmod.item.ModItemGroup;
 import net.Malte.demonmod.item.ModItems;
 import net.minecraft.block.AbstractBlock;
@@ -41,6 +42,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> REDWOOD_PLANKS = registerBlock("redwood_planks",
             ()-> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)));
+
+    public static final RegistryObject<Block> DEMON_ALTAR = registerBlock("demon_altar",
+            () -> new DemonAltarBlock(AbstractBlock.Properties.create(Material.IRON).notSolid()));
 
 
 

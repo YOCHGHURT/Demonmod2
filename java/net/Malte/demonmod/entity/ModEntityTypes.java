@@ -2,9 +2,11 @@ package net.Malte.demonmod.entity;
 
 import net.Malte.demonmod.DemonMod;
 import net.Malte.demonmod.entity.custom.BuffZombieEntity;
+import net.Malte.demonmod.entity.custom.CustomIronGolem;
 import net.Malte.demonmod.entity.custom.PigeonEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -25,6 +27,12 @@ public class ModEntityTypes {
             ENTITY_TYPES.register("pigeon", () -> EntityType.Builder.create(PigeonEntity::new,
                             EntityClassification.CREATURE).size(0.4f, 0.3f)
                     .build(new ResourceLocation(DemonMod.MOD_ID, "pigeon").toString()));
+
+    public static final RegistryObject<EntityType<CustomIronGolem>>CUSTOM_IRONGOLEM =
+        ENTITY_TYPES.register("customirongolem",
+                () -> EntityType.Builder.create(CustomIronGolem::new,
+                EntityClassification.CREATURE).size(3f,9f)
+                .build(new ResourceLocation(DemonMod.MOD_ID,"customirongolem").toString()));
 
 
 
