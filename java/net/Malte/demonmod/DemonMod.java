@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.Malte.demonmod.block.ModBlocks;
 import net.Malte.demonmod.entity.ModEntityTypes;
 import net.Malte.demonmod.entity.render.BuffZombieRenderer;
+import net.Malte.demonmod.entity.render.CustomIronGolemRenderer;
 import net.Malte.demonmod.entity.render.PigeonRenderer;
 import net.Malte.demonmod.item.ModItems;
 import net.minecraft.block.Block;
@@ -71,12 +72,9 @@ public class DemonMod
                     RenderTypeLookup.setRenderLayer(ModBlocks.DEMON_ALTAR.get(), RenderType.getCutout());
                 });
 
-
-
-
-
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BUFF_ZOMBIE.get(), BuffZombieRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PIGEON.get(), PigeonRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CUSTOM_IRONGOLEM.get(), CustomIronGolemRenderer::new);
 
     }
 

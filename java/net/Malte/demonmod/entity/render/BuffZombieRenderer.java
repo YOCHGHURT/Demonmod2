@@ -4,7 +4,6 @@ import net.Malte.demonmod.DemonMod;
 import net.Malte.demonmod.entity.custom.BuffZombieEntity;
 import net.Malte.demonmod.entity.model.BuffZombieModel;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 

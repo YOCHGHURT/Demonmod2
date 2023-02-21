@@ -22,9 +22,8 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import org.slf4j.event.Level;
-
-import java.util.logging.LogManager;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 
 public class DemonTowerStructure extends Structure<NoFeatureConfig> {
     public DemonTowerStructure() {
@@ -38,7 +37,7 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
 
 
     protected boolean func_230363_a_(ChunkGenerator chunkGenerator, BiomeProvider biomeSource,
-                                     long seed, SharedSeedRandom     chunkRandom, int chunkX, int chunkZ,
+                                     long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ,
                                      Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
         BlockPos centerOfChunk = new BlockPos((chunkX << 4) + 7, 0, (chunkZ << 4) + 7);
         int landHeight = chunkGenerator.getHeight(centerOfChunk.getX(), centerOfChunk.getZ(),
@@ -75,12 +74,13 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
                     new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
                             .getOrDefault(new ResourceLocation(DemonMod.MOD_ID, "house/start_pool")),
                             10), AbstractVillagePiece::new, chunkGenerator, templateManagerIn,
-                    blockpos, this.components, this.rand,false,true);
+                    blockpos, this.components, this.rand, false, true);
 
             this.components.forEach(piece -> piece.offset(0, 1, 0));
             this.components.forEach(piece -> piece.getBoundingBox().minY -= 1);
 
             this.recalculateStructureSize();
+
 
             LogManager.getLogger().log(Level.DEBUG, "House at " +
                     this.components.get(0).getBoundingBox().minX + " " +
