@@ -7,6 +7,9 @@ import net.Malte.demonmod.entity.render.BuffZombieRenderer;
 import net.Malte.demonmod.entity.render.CustomIronGolemRenderer;
 import net.Malte.demonmod.entity.render.PigeonRenderer;
 import net.Malte.demonmod.item.ModItems;
+import net.Malte.demonmod.world.biome.ModBiomes;
+import net.Malte.demonmod.world.gen.ModBiomeGeneration;
+import net.Malte.demonmod.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -41,11 +44,15 @@ public class DemonMod
     public DemonMod() {
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        //erstellt eine leichter zu schreibene Variabel
+        ModStructures.register(eventBus);
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
         ModEntityTypes.register(eventBus);
+        ModBiomes.register(eventBus);
+
+
+
 
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -64,6 +71,10 @@ public class DemonMod
             AxeItem.BLOCK_STRIPPING_MAP = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.BLOCK_STRIPPING_MAP)
                     .put(ModBlocks.REDWOOD_LOG.get(), ModBlocks.STRIPPED_REDWOOD_LOG.get())
                     .put(ModBlocks.REDWOOD_WOOD.get(), ModBlocks.STRIPPED_REDWOOD_WOOD.get()).build();
+
+            ModStructures.setupStructures();
+
+            ModBiomeGeneration.generateBiomes();
         });
     }
 

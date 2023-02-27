@@ -46,6 +46,22 @@ public class ModBlocks {
     public static final RegistryObject<Block> DEMON_ALTAR = registerBlock("demon_altar",
             () -> new DemonAltarBlock(AbstractBlock.Properties.create(Material.IRON).notSolid()));
 
+    public static final RegistryObject<Block> DEMON_DIRT = registerBlock("demon_dirt",
+            () -> new Block(AbstractBlock.Properties.create(Material.EARTH)
+                    .harvestLevel(2).harvestTool(ToolType.SHOVEL).setRequiresTool().hardnessAndResistance(3f)));
+
+    public static final RegistryObject<Block> DEMON_STONE = registerBlock("demon_stone",
+            () -> new Block(AbstractBlock.Properties.create(Material.ROCK)
+                    .harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool().hardnessAndResistance(3f)));
+
+    public static final RegistryObject<Block> DEMON_ORE = registerBlock("demon_ore",
+            () -> new Block(AbstractBlock.Properties.create(Material.ROCK)
+                    .harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool().hardnessAndResistance(5f)));
+
+    public static final RegistryObject<Block> DEMON_GRASS = registerBlock("demon_grass",
+            () -> new Block(AbstractBlock.Properties.create(Material.EARTH)
+                    .harvestLevel(2).harvestTool(ToolType.SHOVEL).setRequiresTool().hardnessAndResistance(3f)));
+
 
 
 

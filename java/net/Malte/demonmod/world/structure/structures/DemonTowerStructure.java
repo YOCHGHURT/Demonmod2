@@ -1,8 +1,8 @@
 package net.Malte.demonmod.world.structure.structures;
 
+import com.mojang.serialization.Codec;
 import net.Malte.demonmod.DemonMod;
 import net.minecraft.block.BlockState;
-import net.minecraft.data.BiomeProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +12,7 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
@@ -35,7 +36,7 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
         return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
-
+    @Override
     protected boolean func_230363_a_(ChunkGenerator chunkGenerator, BiomeProvider biomeSource,
                                      long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ,
                                      Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
@@ -50,7 +51,7 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
     }
 
     @Override
-    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
         return DemonTowerStructure.Start::new;
     }
 
@@ -64,7 +65,7 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
         public void func_230364_a_(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator,
                                    TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn,
                                    NoFeatureConfig config) {
-            // Turns the chunk coordinates into actual coordinates.
+            // Turns the chunk coordinates into actual coordinates we can use. (Gets center of that chunk)
             int x = (chunkX << 4) + 7;
             int z = (chunkZ << 4) + 7;
             BlockPos blockpos = new BlockPos(x, 0, z);
@@ -74,13 +75,12 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
                     new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
                             .getOrDefault(new ResourceLocation(DemonMod.MOD_ID, "house/start_pool")),
                             10), AbstractVillagePiece::new, chunkGenerator, templateManagerIn,
-                    blockpos, this.components, this.rand, false, true);
+                    blockpos, this.components, this.rand,false,true);
 
             this.components.forEach(piece -> piece.offset(0, 1, 0));
             this.components.forEach(piece -> piece.getBoundingBox().minY -= 1);
 
             this.recalculateStructureSize();
-
 
             LogManager.getLogger().log(Level.DEBUG, "House at " +
                     this.components.get(0).getBoundingBox().minX + " " +

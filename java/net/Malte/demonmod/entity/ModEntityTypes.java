@@ -30,7 +30,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<CustomIronGolemEntity>> CUSTOM_IRONGOLEM =
         ENTITY_TYPES.register("custom_iron_golem",
                 () -> EntityType.Builder.create(CustomIronGolemEntity::new,
-                EntityClassification.CREATURE).size(2f,6f)
+                EntityClassification.CREATURE).size(1f,3f)
                 .build(new ResourceLocation(DemonMod.MOD_ID,"custom_iron_golem").toString()));
 
 

@@ -13,7 +13,7 @@ public class CustomIronGolemRenderer extends MobRenderer<CustomIronGolemEntity, 
             new ResourceLocation(DemonMod.MOD_ID, "textures/entity/customirongolemtexture.png");
 
     public CustomIronGolemRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new CustomIronGolemModel<>(),1f);
+        super(renderManagerIn, new CustomIronGolemModel<>(),0.7f);
     }
 
     @Override

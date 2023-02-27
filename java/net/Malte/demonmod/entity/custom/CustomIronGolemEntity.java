@@ -10,11 +10,15 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
@@ -23,6 +27,8 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityEvent;
+
 import java.util.Random;
 
 public class CustomIronGolemEntity extends IronGolemEntity {
@@ -32,11 +38,23 @@ public class CustomIronGolemEntity extends IronGolemEntity {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 2000.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.33D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 15.0D)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 20.0D)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 50.0D);
     }
 
@@ -49,7 +67,6 @@ public class CustomIronGolemEntity extends IronGolemEntity {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TurtleEntity.class, 10, true, false, TurtleEntity.TARGET_DRY_BABY));
-        this.goalSelector.addGoal(0, new LookAtGoal(this, PlayerEntity.class, 8.0F));
     }
 
 
@@ -84,7 +101,7 @@ public class CustomIronGolemEntity extends IronGolemEntity {
     private final Random random = new Random();
 
     private int attackTicks = 0;
-    private static final int ATTACK_INTERVAL_TICKS = 100; // 5 Sekunden * 20 ticks/Sekunde
+    private static final int ATTACK_INTERVAL_TICKS = 50; // 2,5 Sekunden * 20 ticks/Sekunde
 
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
@@ -93,7 +110,7 @@ public class CustomIronGolemEntity extends IronGolemEntity {
             // wählt eine zufällige Attacke
             int randomAttack = this.rand.nextInt(3);
             switch (randomAttack) {
-                case 0: // Angriffsart 1: Spieler wird 5 Blöcke in die Luft geschmissen
+                case 0: // Angriffsart 1: Spieler wird 10 Blöcke in die Luft geschmissen
                     if (this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {
                         entityIn.addVelocity(0, 1, 0);
                     }

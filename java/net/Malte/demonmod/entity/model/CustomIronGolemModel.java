@@ -4,67 +4,41 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.Malte.demonmod.entity.custom.CustomIronGolemEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class CustomIronGolemModel <T extends CustomIronGolemEntity> extends SegmentedModel<T> {
-    private final ModelRenderer DarkGolem;
-    private final ModelRenderer Torso;
-    private final ModelRenderer Chest;
-    private final ModelRenderer RightLeg;
-    private final ModelRenderer LeftArm;
+public class CustomIronGolemModel <T extends CustomIronGolemEntity> extends EntityModel<T> {
     private final ModelRenderer Head;
-    private final ModelRenderer LeftLeg;
+    private final ModelRenderer Body;
     private final ModelRenderer RightArm;
+    private final ModelRenderer LeftArm;
+    private final ModelRenderer LeftLeg;
+    private final ModelRenderer RightLeg;
 
     public CustomIronGolemModel() {
-        textureWidth = 128;
-        textureHeight = 128;
-
-        DarkGolem = new ModelRenderer(this);
-        DarkGolem.setRotationPoint(0.0F, 0.0F, 0.0F);
-
-
-        Head = new ModelRenderer(this);
-        Head.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(Head);
-        Head.setTextureOffset(0, 36).addBox(-5.0F, -68.0F, -5.0F, 16.0F, 16.0F, 16.0F, 0.0F, false);
-
-        Chest = new ModelRenderer(this);
-        Chest.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(Chest);
-        Chest.setTextureOffset(0, 0).addBox(-13.0F, -52.0F, -5.0F, 32.0F, 20.0F, 16.0F, 0.0F, false);
-
-        Torso = new ModelRenderer(this);
-        Torso.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(Torso);
-        Torso.setTextureOffset(48, 36).addBox(-5.0F, -32.0F, -1.0F, 16.0F, 8.0F, 8.0F, 0.0F, false);
-
-        RightArm = new ModelRenderer(this);
-        RightArm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(RightArm);
-        RightArm.setTextureOffset(0, 68).addBox(-21.0F, -52.0F, -1.0F, 8.0F, 48.0F, 8.0F, 0.0F, false);
-
-        LeftArm = new ModelRenderer(this);
-        LeftArm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(LeftArm);
-        LeftArm.setTextureOffset(56, 60).addBox(19.0F, -52.0F, -1.0F, 8.0F, 48.0F, 8.0F, 0.0F, false);
-
-        LeftLeg = new ModelRenderer(this);
-        LeftLeg.setRotationPoint(0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(LeftLeg);
-        LeftLeg.setTextureOffset(89, 76).addBox(5.0F, -24.0F, -1.0F, 8.0F, 24.0F, 8.0F, 0.0F, false);
-
-        RightLeg = new ModelRenderer(this);
-        RightLeg.setRotationPoint(  0.0F, 0.0F, 0.0F);
-        DarkGolem.addChild(RightLeg);
-        RightLeg.setTextureOffset(88, 44).addBox(-7.0F, -24.0F, -1.0F, 8.0F, 24.0F, 8.0F, 0.0F, false);
-
-
-
-
-
+        int i = 128;
+        int j = 128;
+        this.Head = (new ModelRenderer(this)).setTextureSize(128, 128);
+        this.Head.setRotationPoint(0.0F, -7.0F, -2.0F);
+        this.Head.setTextureOffset(0, 0).addBox(-4.0F, -12.0F, -5.5F, 8.0F, 10.0F, 8.0F, 0.0F);
+        this.Head.setTextureOffset(24, 0).addBox(-1.0F, -5.0F, -7.5F, 2.0F, 4.0F, 2.0F, 0.0F);
+        this.Body = (new ModelRenderer(this)).setTextureSize(128, 128);
+        this.Body.setRotationPoint(0.0F, -7.0F, 0.0F);
+        this.Body.setTextureOffset(0, 40).addBox(-9.0F, -2.0F, -6.0F, 18.0F, 12.0F, 11.0F, 0.0F);
+        this.Body.setTextureOffset(0, 70).addBox(-4.5F, 10.0F, -3.0F, 9.0F, 5.0F, 6.0F, 0.5F);
+        this.RightArm = (new ModelRenderer(this)).setTextureSize(128, 128);
+        this.RightArm.setRotationPoint(0.0F, -7.0F, 0.0F);
+        this.RightArm.setTextureOffset(60, 21).addBox(-13.0F, -2.5F, -3.0F, 4.0F, 30.0F, 6.0F, 0.0F);
+        this.LeftArm = (new ModelRenderer(this)).setTextureSize(128, 128);
+        this.LeftArm.setRotationPoint(0.0F, -7.0F, 0.0F);
+        this.LeftArm.setTextureOffset(60, 58).addBox(9.0F, -2.5F, -3.0F, 4.0F, 30.0F, 6.0F, 0.0F);
+        this.LeftLeg = (new ModelRenderer(this, 0, 22)).setTextureSize(128, 128);
+        this.LeftLeg.setRotationPoint(-4.0F, 11.0F, 0.0F);
+        this.LeftLeg.setTextureOffset(37, 0).addBox(-3.5F, -3.0F, -3.0F, 6.0F, 16.0F, 5.0F, 0.0F);
+        this.RightLeg = (new ModelRenderer(this, 0, 22)).setTextureSize(128, 128);
+        this.RightLeg.mirror = true;
+        this.RightLeg.setTextureOffset(60, 0).setRotationPoint(5.0F, 11.0F, 0.0F);
+        this.RightLeg.addBox(-3.5F, -3.0F, -3.0F, 6.0F, 16.0F, 5.0F, 0.0F);
     }
 
     @Override
@@ -77,27 +51,23 @@ public class CustomIronGolemModel <T extends CustomIronGolemEntity> extends Segm
         this.LeftLeg.rotateAngleY = 0.0F;
         this.RightLeg.rotateAngleY = 0.0F;
     }
+
     @Override
     public void render(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn,
                        int packedOverlayIn, float red, float green, float blue, float alpha) {
         Head.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
-        Chest.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
-        Torso.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
+        Body.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
         RightArm.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
         RightLeg.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
         LeftArm.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
         LeftLeg.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
     }
 
-    @Override
-    public Iterable<ModelRenderer> getParts() {
-        return null;
+
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
     }
 
-
-    // public void setRotationAngle(ModelRenderer modelRenderer,float x, float y, float z){
-        //modelRenderer.rotateAngleX = x;
-        //modelRenderer.rotateAngleY = y;
-        //modelRenderer.rotateAngleZ = z;
-    }
-
+}
