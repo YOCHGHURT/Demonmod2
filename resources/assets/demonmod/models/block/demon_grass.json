@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "demonmod:block/demon_grass_top",
+    "bottom": "demonmod:block/demon_dirt",
+    "side": "demonmod:block/demon_grass_side",
+    "particle": "minecraft:block/dirt"
+  }
+}

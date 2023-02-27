@@ -16,7 +16,14 @@
   "block.demonmod.redwood_log": "Redwood Log",
   "block.demonmod.stripped_redwood_log": "Stripped Redwood Log",
   "block.demonmod.redwood_planks": "Redwood Planks",
-  "block.demonmod.demon_altar": "Demon Altar"
+  "block.demonmod.demon_altar": "Demon Altar",
+  "block.demonmod.demon_stone": "Demon Stone",
+  "block.demonmod.demon_dirt": "Demon Dirt",
+  "block.demonmod.demon_ore": "Demon Ore",
+  "block.demonmod.demon_grass": "Demon Grass Block",
+  "entity.demonmod.custom.custom_iron_golem": "Demon Golem",
+  "entity.demonmod.custom.buff_zombie" : "Buff Zombie",
+  "entity.demonmod.custom.pigeon" : "Pigeon"
 
 
 

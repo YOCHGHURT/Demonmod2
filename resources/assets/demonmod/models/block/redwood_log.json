@@ -1,5 +1,5 @@
 {
-  "parent": "minnecraft:block/cube_collum",
+  "parent": "minecraft:block/cube_collum",
   "textures": {
     "end": "demonmod:block/redwood_log_top",
     "side": "demonmod:block/redwood_log"
