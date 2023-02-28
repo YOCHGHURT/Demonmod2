@@ -9,7 +9,6 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-
 import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;

@@ -1,6 +1,5 @@
 package net.Malte.demonmod.world.structure.structures;
 
-import com.mojang.serialization.Codec;
 import net.Malte.demonmod.DemonMod;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
@@ -73,7 +72,7 @@ public class DemonTowerStructure extends Structure<NoFeatureConfig> {
             //addpieces()
             JigsawManager.func_242837_a(dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.getRegistry(Registry.JIGSAW_POOL_KEY)
-                            .getOrDefault(new ResourceLocation(DemonMod.MOD_ID, "house/start_pool")),
+                            .getOrDefault(new ResourceLocation(DemonMod.MOD_ID, "demontower/start_pool")),
                             10), AbstractVillagePiece::new, chunkGenerator, templateManagerIn,
                     blockpos, this.components, this.rand,false,true);
 

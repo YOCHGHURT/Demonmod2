@@ -44,9 +44,11 @@ public class DemonMod
     public DemonMod() {
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModStructures.register(eventBus);
+
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+
+        ModStructures.register(eventBus);
 
         ModEntityTypes.register(eventBus);
         ModBiomes.register(eventBus);

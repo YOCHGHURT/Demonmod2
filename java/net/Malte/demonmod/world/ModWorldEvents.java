@@ -19,7 +19,6 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-
 import org.apache.logging.log4j.LogManager;
 
 import java.lang.reflect.Method;
@@ -32,6 +31,7 @@ public class ModWorldEvents {
     @SubscribeEvent
     public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
         ModStructureGeneration.generateStructures(event);
+
 
 
         ModEntityGeneration.onEntitySpawn(event);
@@ -71,5 +71,3 @@ public class ModWorldEvents {
         }
     }
 }
-
-
